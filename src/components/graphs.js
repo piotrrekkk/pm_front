@@ -1,9 +1,14 @@
 import React from 'react';
 import { last } from 'underscore';
-import { Line } from 'react-chartjs-2';
-
+import { LineChart, Line } from 'recharts';
 
 export class Graphs extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.labels = this.props.pm10.map(value => (`${new Date(value.time).getHours()}:${new Date(value.time).getMinutes()}`)); 
+    }
+
     render() {
         if (!this.props.pm10 || !this.props.pm25) {
             return <div></div>
@@ -15,34 +20,9 @@ export class Graphs extends React.Component {
                 <br />
                 <b>PM 10:</b> {last(this.props.pm10).value}
 
-                <Line data={{
-                    labels: [this.props.pm10.map(value => (`${new Date(value.time).getHours()}:${new Date(value.time).getMinutes()}`))],
-                    fill: false,
-                    datasets: [{
-                        label: 'PM 2.5',
-                        data: this.props.pm25.map(value => value.value)
-                    }],
-                    options: {
-                        title: {
-                            text: 'Chart.js Time Scale'
-                        },
-                        scales: {
-                            xAxes: [{
-                                type: 'time',
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'Date'
-                                }
-                            }],
-                            yAxes: [{
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'value'
-                                }
-                            }]
-                        },
-                    }
-                }} />
+                <LineChart width={400} height={400} data={this.props.pm25}>
+                    <Line type="monotone" dataKey="value" stroke="#8884d8" />
+                </LineChart>
             </div>
         )
     }
