@@ -17,7 +17,6 @@ export class Graphs extends React.Component {
 
                 <Line data={{
                     labels: [this.props.pm10.map(value => (`${new Date(value.time).getHours()}:${new Date(value.time).getMinutes()}`))],
-					backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
                     borderColor: window.chartColors.red,
 					fill: false,
                     datasets: [{
@@ -31,11 +30,11 @@ export class Graphs extends React.Component {
                         scales: {
                             xAxes: [{
                                 type: 'time',
-                                time: {
-                                    parser: timeFormat,
-                                    // round: 'day'
-                                    tooltipFormat: 'll HH:mm'
-                                },
+                                // time: {
+                                //     // parser: timeFormat,
+                                //     // round: 'day'
+                                //     tooltipFormat: 'll HH:mm'
+                                // },
                                 scaleLabel: {
                                     display: true,
                                     labelString: 'Date'
