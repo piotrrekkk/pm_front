@@ -16,8 +16,11 @@ export class Graphs extends React.Component {
                 <b>PM 10:</b> {last(this.props.pm10).value}
 
                 <Line data={{
-                    labels: [this.props.pm10.map(value => value.time)],
-                    datasets: [this.props.pm25]
+                    labels: [this.props.pm10.map(value => (`${new Date(value.time).getHours()}:${new Date(value.time).getMinutes()}`))],
+                    datasets: [{
+                        label: 'PM 2.5',
+                        data: this.props.pm25
+                    }]
                 }} />
             </div>
         )
