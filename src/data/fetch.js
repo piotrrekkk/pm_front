@@ -6,7 +6,7 @@ export const fetchData = location => {
     }
   
     console.log(location);
-    fetch(`/data?location=${location}`)
+    return fetch(`/data?location=${location}`)
       .then(response => {
         console.log(response);
           return response.json();
