@@ -5,9 +5,6 @@ import { Line } from 'react-chartjs-2';
 
 export class Graphs extends React.Component {
     render() {
-        if (!data) {
-            return;
-        }
         return (
             <div>
                 <h2> Ostatnie wartości:</h2>
