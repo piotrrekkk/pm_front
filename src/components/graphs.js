@@ -6,7 +6,7 @@ import { Line } from 'react-chartjs-2';
 export class Graphs extends React.Component {
     render() {
         if (!this.props.pm10 || !this.props.pm25) {
-            return
+            return <div></div>
         }
         return (
             <div>
