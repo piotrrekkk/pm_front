@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import { Dropdown } from "./components/dropdown";
 import { fetchData } from "./data/fetch";
-
+import {Graphs}  from 'Graphs'
 export default class App extends React.Component {
   constructor(props) {
     super(props);

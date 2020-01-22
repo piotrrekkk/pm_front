@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'underscore';
 
-export default class Graphs extends React.Component {
+export class Graphs extends React.Component {
     render() {
         <div>
             PM 2.5: {_.last(this.props.pm25)}
