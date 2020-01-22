@@ -1,6 +1,6 @@
 import React from 'react';
 import { last } from 'underscore';
-import { LineChart, Line } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 export class Graphs extends React.Component {
 
@@ -21,7 +21,7 @@ export class Graphs extends React.Component {
                 <br />
                 <b>PM 10:</b> {last(this.props.pm10).value}
 
-                <LineChart width={600} height={300} data={data}>
+                <LineChart width={600} height={300} data={this.props.pm25}>
                     <Line type="monotone" dataKey="value" stroke="#8884d8" />
                     <CartesianGrid stroke="#ccc" />
                     <XAxis dataKey="time" />
