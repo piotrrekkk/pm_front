@@ -8,7 +8,7 @@ export const fetchData = location => {
     console.log(location);
     return fetch(`/data?location=${location}`)
       .then(response => {
-          return response;
+          return response.json();
       })
       .catch(err => console.log(err));
   };
