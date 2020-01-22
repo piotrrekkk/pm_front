@@ -19,7 +19,7 @@ export class Graphs extends React.Component {
                     labels: [this.props.pm10.map(value => (`${new Date(value.time).getHours()}:${new Date(value.time).getMinutes()}`))],
                     datasets: [{
                         label: 'PM 2.5',
-                        data: this.props.pm25
+                        data: this.props.pm25.map(value => value.value)
                     }]
                 }} />
             </div>
