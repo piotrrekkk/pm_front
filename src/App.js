@@ -23,14 +23,18 @@ export default class App extends React.Component {
   getData() {
     fetchData(this.state.location)
       .then(data => {
-
-        // console.log( data.filter(value => value.type === 'PM 2.5').map(value => value.value),)
-        // console.log(data.filter(value => value.type === 'PM 2.5').map(value => value.value);
-        console.log(data)
-        this.setState({
-          pm25: [2],
-          pm10: [1]
-        })
+        if(data) {
+          let pm25 = data.filter(value => value.type === 'PM 2.5').map(value => value.value);
+          let pm10 = data.filter(value => value.type === 'PM 10').map(value => value.value)
+          console.log( data.filter(value => value.type === 'PM 2.5').map(value => value.value));
+          console.log(data.filter(value => value.type === 'PM 10').map(value => value.value));
+          console.log(data)
+          this.setState({
+            pm25: pm25,
+            pm10: pm10
+          })
+    
+        }
 
       });
   }
