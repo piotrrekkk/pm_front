@@ -16,14 +16,16 @@ export class Graphs extends React.Component {
                 <br />
                 <b>PM 10:</b> {last(this.props.pm10).value}
 
-                <LineChart width={400} height={400} data={this.props.pm25}>
-                    <Line type="monotone" dataKey="value" stroke="#8884d8" />
-                </LineChart>
-
-                <LineChart width={400} height={400} data={this.props.pm10}>
-                    <Line type="monotone" dataKey="value" stroke="#8884d8" />
-                </LineChart>
-
+                <div>
+                    <LineChart width={400} height={400} data={this.props.pm25}>
+                        <Line type="monotone" dataKey="value" stroke="#8884d8" />
+                    </LineChart>
+                </div>
+                <div>
+                    <LineChart width={400} height={400} data={this.props.pm10}>
+                        <Line type="monotone" dataKey="value" stroke="#8884d8" />
+                    </LineChart>
+                </div>
             </div>
         )
     }
