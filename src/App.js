@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import { Dropdown } from "./components/dropdown";
 import { fetchData } from "./data/fetch";
-import {Graphs}  from './components/graphs'
+import { Graphs } from './components/graphs'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,10 +22,10 @@ export default class App extends React.Component {
 
   getData() {
     fetchData(this.state.location)
-	  .then(data => this.setState({
-	  	pm25: data.filter(value => value.type === 'PM 2.5').map(value => value.value),
-		pm10: data.filter(value => value.type === 'PM 2.5').map(value => value.value)
-	  }));
+      .then(data => this.setState({
+        pm25: data.filter(value => value.type === 'PM 2.5').map(value => value.value),
+        pm10: data.filter(value => value.type === 'PM 2.5').map(value => value.value)
+      }));
   }
 
   render() {
@@ -49,7 +49,7 @@ export default class App extends React.Component {
             </button>
           </div>
         </div>
-	<Graphs pm25={this.state.pm25} pm10={this.state.pm10}/>
+        <Graphs pm25={this.state.pm25} pm10={this.state.pm10} />
       </div>
     );
   }
