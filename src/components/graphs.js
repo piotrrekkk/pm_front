@@ -12,7 +12,9 @@ export class Graphs extends React.Component {
                 <br />
                 <b>PM 10:</b> {last(this.props.pm10)}
 
-                <Line data={this.props.pm25} />
+                <Line data={{
+                    datasets: [this.props.pm25]
+                }} />
             </div>
         )
     }
