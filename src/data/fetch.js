@@ -8,11 +8,7 @@ export const fetchData = location => {
     console.log(location);
     return fetch(`/data?location=${location}`)
       .then(response => {
-        console.log(response);
-          return response.json();
-      })
-      .then(response => {
-        console.log(response);
+          return response;
       })
       .catch(err => console.log(err));
   };
