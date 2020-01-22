@@ -1,13 +1,18 @@
 import React from 'react';
 import { last } from 'underscore';
+import { Line } from 'react-chartjs-2';
+
 
 export class Graphs extends React.Component {
     render() {
         return (
             <div>
-                PM 2.5: {last(this.props.pm25)}
+                <h2> Ostatnie wartości:</h2>
+                <b>PM 2.5:</b> {last(this.props.pm25)}
                 <br />
-                PM 10: {last(this.props.pm10)}
+                <b>PM 10:</b> {last(this.props.pm10)}
+
+                <Line data={this.props.pm25} />
             </div>
         )
     }
